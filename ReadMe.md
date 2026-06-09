@@ -1,0 +1,17 @@
+Problem
+Wisconsin cranberry growers face significant frost risk during bud development each spring. Current Multi-Peril Crop Insurance (MPCI) provides yield-based coverage with frost as a covered cause of loss, but policies are poorly constructed for frost specifically. Growers are exposed to losses in developmental stages of the growth cycle, yet indemnities are paid based on yield shortfall at harvest. A parametric insurance product offers immediate financial relief to cover farm costs incurred due to frost losses.
+
+Approach
+Parametric frost coverage products exist for specialty crops such as cranberries, but fall short in mapping an effective temperature trigger to crops whose vulnerability to frost changes based on stages of plant development. This project introduces the concept of stage-dependent temperature triggers, with a ladder of triggers corresponding to the vulnerability at specific stages of plant development, indexed by calendar-based stage assignments. 
+
+Validation
+The notebook initially explores county-level weather data via interpolation from nearby weather stations and loss data from USDA RMA MPCI Cranberry policies across four Wisconsin counties from 2006-2024. Efficacy of the stage-dependent trigger approach is tested, with the most significant recent frost loss year (2021) falling under or close to the calendar-indexed triggers in all counties. Findings are strengthened by exploration of RMA Cause of Loss reports which, when filtered to frost and overlapping causes of loss, provide signal of a pronounced loss in 2021. These findings are supported by public news sources, detailing the exact mechanism which causes frost losses this product aims to cover: warm early spring which accelerates plant development, followed by a severe frost relative to development stage. 
+
+Limitations
+As this project is in progress, various limitations are noted and within the current working scope. Calendar-based stage assignments assume that plant growth is uniform across years and is effectively modeled by date. This framework misses years where phenology is shifted, so exploration of alternative development indexes are warranted. County-level calibration of temperature thresholds may be necessary to address the difference in false-positive rates across counties. Cold Wet Weather is a cause of loss which partially maps to classical frost and freeze losses with distinct trigger mechanisms; separate analysis may provide insight into whether this cause lies within the scope of a parametric frost product.
+
+Next Steps
+Topics of future analysis are proposed to address the limitations noted above. The highest priority is development of growth-degree-day (GDD) based stage modeling, where development stage is assigned based on accumulation of days with conditions conducive to plant growth. This update over calendar-based stage assignments will more effectively model the key mechanism of frost loss as seen in 2021. Additionally, early explorations from RMA MPCI data can be reworked with RMA Cause of Loss data filtered to frost and freeze losses, providing more accurate analysis of frost-specific indemnities. Once an effective model for development-stage is tested against historical loss data, stochastic-based temperature modeling through mean-reversion will provide the engine for forward-looking pricing.
+
+GitHub Link
+https://github.com/michaeljschumacher/parametric-cranberry
